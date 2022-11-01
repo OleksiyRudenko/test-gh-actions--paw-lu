@@ -25,10 +25,8 @@ jobs:
           fetch-depth: 2
 
       - name: Fork
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh repo fork --clone Kapeli/Dash-User-Contributions
+          mkdir Dash-User-Contributions
 
       - name: Branch
         working-directory: ./Dash-User-Contributions
