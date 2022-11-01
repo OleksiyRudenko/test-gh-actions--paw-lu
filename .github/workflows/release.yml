@@ -43,7 +43,7 @@ jobs:
       - name: Setup git
         uses: oleksiyrudenko/gha-git-credentials@v2.1
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           global: true
           name: Tester testy
           email: tester@testit.com
