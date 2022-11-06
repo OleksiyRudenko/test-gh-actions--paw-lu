@@ -72,9 +72,9 @@ jobs:
 
       - name: Push
         working-directory: ./Dash-User-Contributions
-        env:
-          GIT_USER: ${{ secrets.GH_TOKEN }}
-          GITHUB_ACTOR: ${{ secrets.GH_TOKEN }}
+        # env:
+          # GIT_USER: ${{ secrets.GH_TOKEN }}
+          # GITHUB_ACTOR: ${{ secrets.GH_TOKEN }}
         run: |
           # GIT_USER="${{ secrets.GH_TOKEN }}"
           # GITHUB_ACTOR="${{ secrets.GH_TOKEN }}"
