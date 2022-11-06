@@ -76,6 +76,8 @@ jobs:
           GIT_USER: ${{ secrets.GH_TOKEN }}
           GITHUB_ACTOR: ${{ secrets.GH_TOKEN }}
         run: |
+          GIT_USER="${{ secrets.GH_TOKEN }}"
+          GITHUB_ACTOR="${{ secrets.GH_TOKEN }}"
           echo "GIT_USER: $GIT_USER"
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           git remote -v
