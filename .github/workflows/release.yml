@@ -35,6 +35,7 @@ jobs:
       - name: Branch
         working-directory: ./Dash-User-Contributions
         run: |
+          git remote -v
           git switch --create=${{ github.run_id }}-${{ github.run_attempt }}
           git status
 
@@ -64,6 +65,7 @@ jobs:
       - name: Commit
         working-directory: ./Dash-User-Contributions
         run: |
+          git remote -v
           git add --all
           git commit --message="Change!"
           git status
@@ -71,4 +73,7 @@ jobs:
       - name: Push
         working-directory: ./Dash-User-Contributions
         run: |
+          # GITHUB_ACTOR = "$GITHUB_TOKEN"
+          # echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          git remote -v
           git push --set-upstream origin ${{ github.run_id }}-${{ github.run_attempt }}
