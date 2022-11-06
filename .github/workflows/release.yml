@@ -86,10 +86,11 @@ jobs:
           # echo "Credentials"
           # cat .git-credentials
           # echo "^^ Credentials"
+          git checkout test-gha-221106-no-fork
           date "+%Y%m%d-%H%M%S" > ./test.md
           git add ./test.md
           git commit -m "Update test.md"
           echo "GIT_USER: $GIT_USER"
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           git remote -v
-          git push --set-upstream origin ${{ github.run_id }}-${{ github.run_attempt }}
+          git push --set-upstream origin test-gha-221106-no-fork
