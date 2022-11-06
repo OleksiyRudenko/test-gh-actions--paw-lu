@@ -71,21 +71,24 @@ jobs:
           git status
 
       - name: Push
-        working-directory: ./Dash-User-Contributions
+        # working-directory: ./Dash-User-Contributions
         env:
           GIT_USER: OleksiyRudenko
           GIT_PASSWORD: ${{ secrets.GH_TOKEN }}
           # GITHUB_ACTOR: ${{ secrets.GH_TOKEN }}
         run: |
-          GIT_USER="OleksiyRudenko"
-          GIT_PASSWORD="${{ secrets.GH_TOKEN }}"
+          # GIT_USER="OleksiyRudenko"
+          # GIT_PASSWORD="${{ secrets.GH_TOKEN }}"
           # GITHUB_ACTOR="${{ secrets.GH_TOKEN }}"
-          git config credential.helper store
-          echo "https://OleksiyRudenko:${{ secrets.GH_TOKEN }}@https://github.com" > .git-credentials
+          # git config credential.helper store
+          # echo "https://OleksiyRudenko:${{ secrets.GH_TOKEN }}@https://github.com" > .git-credentials
           ls -a
-          echo "Credentials"
-          cat .git-credentials
-          echo "^^ Credentials"
+          # echo "Credentials"
+          # cat .git-credentials
+          # echo "^^ Credentials"
+          date "+%Y%m%d-%H%M%S" > ./test.md
+          git add ./test.md
+          git commit -m "Update test.md"
           echo "GIT_USER: $GIT_USER"
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           git remote -v
