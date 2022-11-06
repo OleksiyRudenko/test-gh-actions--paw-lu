@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - test-gha-221106
   workflow_dispatch:
     inputs:
       manual_release:
