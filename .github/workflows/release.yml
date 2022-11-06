@@ -72,8 +72,9 @@ jobs:
 
       - name: Push
         working-directory: ./Dash-User-Contributions
+        env:
+          GIT_USER: ${{ secrets.GH_TOKEN }}
         run: |
-          GIT_USER="$GITHUB_TOKEN"
           echo "GIT_USER: $GIT_USER"
           git remote -v
           git push --set-upstream origin ${{ github.run_id }}-${{ github.run_attempt }}
