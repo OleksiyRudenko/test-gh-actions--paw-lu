@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - test-gha-221106
+      - test-gha-221106-no-fork
   workflow_dispatch:
     inputs:
       manual_release:
