@@ -28,12 +28,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          echo "tkn: $GITHUB_TOKEN"
           gh repo fork --clone Kapeli/Dash-User-Contributions
+          ls -a ./Dash-User-Contributions
 
       - name: Branch
         working-directory: ./Dash-User-Contributions
         run: |
           git switch --create=${{ github.run_id }}-${{ github.run_attempt }}
+          git status
 
       - name: Make a change
         working-directory: ./Dash-User-Contributions
@@ -49,11 +52,21 @@ jobs:
           email: tester@testit.com
           actor: paw-lu
 
+      - name: Log git cred config
+        working-directory: ./Dash-User-Contributions
+        run: |
+          git config --global --list
+          echo "github actor: ${{ github.actor }}"
+          echo "GIT_USER: $GIT_USER"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          git status
+
       - name: Commit
         working-directory: ./Dash-User-Contributions
         run: |
           git add --all
           git commit --message="Change!"
+          git status
 
       - name: Push
         working-directory: ./Dash-User-Contributions
